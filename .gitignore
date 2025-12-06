@@ -75,12 +75,13 @@ yarn-error.log
 !.yarn/sdks
 !.yarn/versions
 
-/ios/RNPracticeProject.xcodeproj/**
-/ios/RNPracticeProject.xcworkspace/**
+/ios/RNPracticeProject.xcodeproj/*
+/ios/RNPracticeProject.xcworkspace/*
+/ios/RNPracticeProject.xcodeproj/project.pbxproj
 /ios/assets/*
 /ios/Podfile.lock
 
 android/gradle.properties
 
 package-lock.json
-ios/RNPracticeProject.xcodeproj/project.pbxproj
+
