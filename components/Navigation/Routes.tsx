@@ -7,13 +7,14 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LotsOfGreetings from '../Props/LotsOfGreetings';
 import Counter from '../State/Counter';
 import Cat from '../State/Cat';
-
+import SearchWithPagination from '../FlatList/SearchWithPagination';
 
 type RootStackParamList = {
   Home: undefined;
   LotsOfGreetings: {name: string} | undefined;
   Counter: undefined;
   Cat: undefined;
+  SearchWithPagination: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -34,6 +35,11 @@ function HomeScreen({ navigation }: any) {
       key: '3',
       title: 'Cat Screen',
       navigateTo: 'Cat',
+    },
+    {
+      key: '4',
+      title: 'Search With Page',
+      navigateTo: 'SearchWithPagination',
     },
   ]; // Dummy data for FlatList
 
@@ -78,11 +84,17 @@ export default function Routes() {
           component={Counter}
           options={{ title: 'Counter' }}
         />
-        {/* Counter */}
+        {/* Cat */}
         <Stack.Screen
           name="Cat"
           component={Cat}
           options={{ title: 'Cat' }}
+        />
+        {/* SearchWithPagination */}
+        <Stack.Screen
+          name="SearchWithPagination"
+          component={SearchWithPagination}
+          options={{ title: 'Search With Pagination' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
