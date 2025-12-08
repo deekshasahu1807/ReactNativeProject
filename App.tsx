@@ -12,18 +12,22 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+import { Provider } from 'react-redux';
+import store from './components/Redux/Store/store';
 import Routes from './components/Navigation/Routes';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
   return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      {/* <AppContent /> */}
-      {/* Use own Routes file */}
-      <Routes />
-    </SafeAreaProvider>
+     <Provider store={store}>
+      <SafeAreaProvider>
+        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+        {/* <AppContent /> */}
+        {/* Use own Routes file */}
+        <Routes />
+      </SafeAreaProvider>
+    </Provider>
   );
 }
 

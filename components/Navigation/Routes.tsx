@@ -8,6 +8,7 @@ import LotsOfGreetings from '../Props/LotsOfGreetings';
 import Counter from '../State/Counter';
 import Cat from '../State/Cat';
 import SearchWithPagination from '../FlatList/SearchWithPagination';
+import CounterScreen from '../Redux/CounterScreen';
 
 type RootStackParamList = {
   Home: undefined;
@@ -15,6 +16,7 @@ type RootStackParamList = {
   Counter: undefined;
   Cat: undefined;
   SearchWithPagination: undefined;
+  CounterScreen: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -41,6 +43,11 @@ function HomeScreen({ navigation }: any) {
       title: 'Search With Page',
       navigateTo: 'SearchWithPagination',
     },
+    {
+      key: '5',
+      title: 'Redux',
+      navigateTo: 'CounterScreen',
+    },
   ]; // Dummy data for FlatList
 
   return (
@@ -55,14 +62,6 @@ function HomeScreen({ navigation }: any) {
           </View>
         )}
       />
-    </View>
-  );
-}
-
-function DetailsScreen({ route }: any) {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen — id: {route.params?.id}</Text>
     </View>
   );
 }
@@ -95,6 +94,12 @@ export default function Routes() {
           name="SearchWithPagination"
           component={SearchWithPagination}
           options={{ title: 'Search With Pagination' }}
+        />
+         {/* SearchWithPagination */}
+        <Stack.Screen
+          name="CounterScreen"
+          component={CounterScreen}
+          options={{ title: 'Redux Counter Screen' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
