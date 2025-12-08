@@ -10,6 +10,7 @@ import Cat from '../State/Cat';
 import SearchWithPagination from '../FlatList/SearchWithPagination';
 import CounterScreen from '../Redux/CounterScreen';
 import PlatformUI from '../Platform/PlatformSpecific';
+import ApiCall from '../API/ApiCall';
 
 type RootStackParamList = {
   Home: undefined;
@@ -19,6 +20,7 @@ type RootStackParamList = {
   SearchWithPagination: undefined;
   CounterScreen: undefined;
   PlatformUI: undefined;
+  ApiCall: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -54,6 +56,11 @@ function HomeScreen({ navigation }: any) {
       key: '6',
       title: 'Platform Specific UI',
       navigateTo: 'PlatformUI',
+    },
+    {
+      key: '7',
+      title: 'API Call',
+      navigateTo: 'ApiCall',
     },
     
   ]; // Dummy data for FlatList
@@ -109,11 +116,17 @@ export default function Routes() {
           component={CounterScreen}
           options={{ title: 'Redux Counter Screen' }}
         />
-        {/* CounterScreen */}
+        {/* PlatformUI */}
         <Stack.Screen
           name="PlatformUI"
           component={PlatformUI}
           options={{ title: 'Platform Specific UI' }}
+        />
+        {/* PlatformUI */}
+        <Stack.Screen
+          name="ApiCall"
+          component={ApiCall}
+          options={{ title: 'API Call Screen' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
